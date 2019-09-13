@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf } from './action';
 
-const Form = (props) => {
+const Form = (props, {deleteCompleted}) => {
     
     const [item, setItem] = useState({name: "", age: "", height: ""});
     const handleChange = event => setItem({
@@ -14,6 +14,11 @@ const Form = (props) => {
         event.preventDefault();
         props.addSmurf(item);
     };
+
+    const handleDelete = event => {
+        event.preventDefault();
+        deleteCompleted();
+    }
     
     return(
         <form onSubmit={handleSubmit}>
@@ -35,7 +40,10 @@ const Form = (props) => {
                     value={item.height}
                     onChange={handleChange}
                     />
+                    <br></br>
             <button type="submit">Add Smurf</button>
+            <button onClick={handleDelete}>Delete Smurff</button>
+
         </form>
     )
 };
