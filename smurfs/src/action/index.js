@@ -5,7 +5,7 @@ export const FETCH_SMURF_FAIL = "FETCH_SMURF_FAIL";
 
 export const getSmurf = () => dispatch => {
     
-    // console.log('start getSmurf');
+
     dispatch({ type: FETCH_SMURF_START });
     fetch('http://localhost:3333/smurfs', {
         "method": "GET",
@@ -14,7 +14,7 @@ export const getSmurf = () => dispatch => {
             return response.json();
         })
         .then(res => {
-            // console.log(res);
+
             dispatch({ type: FETCH_SMURF_SUCCESS, payload: res })
         })
         .catch (err => {
@@ -25,7 +25,7 @@ export const getSmurf = () => dispatch => {
 export const addSmurf = (item) => dispatch => {
     
     console.log('start addSmurf');
-    // dispatch({ type: FETCH_SMURF_START });
+
     fetch('http://localhost:3333/smurfs', {
         "method": "POST",
         body: JSON.stringify(item),
@@ -33,12 +33,7 @@ export const addSmurf = (item) => dispatch => {
             'Content-Type': 'application/json'
           }
         }).then(res => res.json())
-        // .then(response => console.log('Success:', JSON.stringify(response)))
-        
 
-        // .then(response => {
-        //     return response.json();
-        // })
         .then(res => {
             console.log(res);
             dispatch({ type: FETCH_SMURF_SUCCESS, payload: res })
