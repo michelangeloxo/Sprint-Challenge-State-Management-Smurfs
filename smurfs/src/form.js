@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf } from './action';
 
-const Form = (props, {deleteCompleted}) => {
+const Form = (props) => {
     
     const [item, setItem] = useState({name: "", age: "", height: ""});
     const handleChange = event => setItem({
@@ -17,7 +17,7 @@ const Form = (props, {deleteCompleted}) => {
 
     const handleDelete = event => {
         event.preventDefault();
-        deleteCompleted();
+      
     }
     
     return(

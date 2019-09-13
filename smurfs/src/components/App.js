@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from "react";
+import React, { useEffect, Component, useReducer } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
 import { getSmurf } from '../action';
@@ -7,10 +7,14 @@ import { addSmurf } from '../action';
 import Form from '../form';
 
 function App (props) {
-  // console.log(props);
+ 
   useEffect(() => {
     props.getSmurf();
   }, []);
+
+  // const deleteCompleted = () => {
+  //   dispatch({ type: "DELETE_COMPLETED" });
+  // };
 
     return (
       <div className="App">
@@ -22,7 +26,8 @@ function App (props) {
           // console.log(smurf);
         return<SmurfComponent smurf={smurf} key={smurf.id} />
       })}
-      <Form /> 
+      <Form  /> 
+      <img src=""  alt="" />
       </div>
     );
 }

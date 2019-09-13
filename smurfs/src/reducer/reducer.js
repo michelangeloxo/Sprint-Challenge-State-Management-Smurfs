@@ -11,8 +11,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
             };
         case FETCH_SMURF_SUCCESS:
-            console.log("Run CL")
-            console.log(action)
+            
             return {
                 smurfs: action.payload
             }
@@ -20,6 +19,10 @@ const reducer = (state = initialState, action) => {
                 return {
                 ...state,
             };
+            case "DELETE_COMPLETED":
+                
+                return { ...state, todoList: state.todoList.filter(todo => !todo.completed)
+                }; 
         default:
             return state;
     }
